@@ -4,7 +4,10 @@ import com.mallya.mogit.commands.InitCommand;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
-@Command(name = "mogit", mixinStandardHelpOptions = true, description = "A git like tool in Java", subcommands = {InitCommand.class})
+@Command(name = "mogit",
+        mixinStandardHelpOptions = true,
+        description = "A git like tool in Java",
+        subcommands = {InitCommand.class})
 public class Mogit implements Runnable {
 
     @Override
@@ -23,7 +26,7 @@ public class Mogit implements Runnable {
                 """);
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         int exitCode = new CommandLine(new Mogit()).execute(args);
         System.exit(exitCode);
     }
